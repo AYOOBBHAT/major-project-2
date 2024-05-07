@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #38E54D;
+  --primary-text-color: #38E54D;
+  --secondary-text-color: #6a7280;
+  --tertiary-text-color: #141f1d;
+  --background-color: #f2f2f2;
+  --main-color: #fff;
+  --shadow-color: #d1d5db;
+}
+
+body {
+  /* avoid tab highlighting in smartphone of blue color */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn-base {
+  @apply bg-[color:var(--color-primary)] text-white hover:bg-[color:var(--main-color)] hover:text-[color:var(--color-primary)] active:bg-[color:var(--color-primary)] active:text-white active:scale-95;
+}
+
+.btn-inverted {
+  @apply bg-[color:var(--main-color)] text-[color:var(--color-primary)] hover:bg-[color:var(--color-primary)] hover:text-white active:bg-[color:var(--main-color)] active:text-[color:var(--color-primary)] active:scale-95;
+}
+
+button:disabled {
+  background: #33ce45;
+  border-color: #38E54D;
+  cursor: not-allowed;
+}
+
+button:disabled:hover {
+  background: #33ce45;
+  color: white;
+}
+
+.dark-mode {
+  --tertiary-text-color: #f7f7f7;
+  --background-color: #64748b;
+  --main-color: #1f2123;
+  --shadow-color: #334155;
+}
+
+select {
+  width: 268px;
+  padding: 5px;
+  font-size: 16px;
+  line-height: 1;
+  border: 0;
+  border-radius: 5px;
+  height: 34px;
+  background: url("data:image/svg+xml,<svg height='10px' width='10px' viewBox='0 0 16 16' fill='%23000000' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>") no-repeat right #ddd;
+  -webkit-appearance: none;
+  background-position-x:95%;
+}
