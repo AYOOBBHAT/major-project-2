@@ -48,9 +48,11 @@ const DiseaseDetector = ({}) => {
       toast.success("Successfully Detected!");
       dispatch(setIsLoading(false));
       setDetectData({
-        plant: res.data.class.split("___")[0],
-        label: res.data.class.split("___")[1],
-        confidence: res.data.confidence,
+        // plant: res.data.class.split("___")[0],
+        // label: res.data.class.split("___")[1],
+        // confidence: res.data.confidence,
+        numberPlate: res.data.numberPlate,
+        time: res.data.time,
       });
     } else {
       toast.error("Something went wrong!");
@@ -146,10 +148,10 @@ const DiseaseDetector = ({}) => {
               )}
             >
               <h3 className="text-[color:var(--tertiary-text-color)] text-lg font-semibold  text-center ">
-                Skin Disease - &nbsp;
+                Number Plate - &nbsp;
               </h3>{" "}
               <h3 className="text-[color:var(--color-primary)] text-xl font-semibold  text-center ">
-                {detectData?.label}
+                {detectData?.numberPlate}
               </h3>
             </div>
             <div
@@ -160,10 +162,10 @@ const DiseaseDetector = ({}) => {
               )}
             >
               <h3 className="text-[color:var(--tertiary-text-color)] text-lg font-semibold  text-center ">
-                Label - &nbsp;
+                Date - &nbsp;
               </h3>{" "}
               <h3 className="text-[color:var(--color-primary)] text-xl font-semibold  text-center ">
-                {detectData?.plant}
+                {new Date(detectData?.time).toDateString()}
               </h3>
             </div>
             <div
@@ -174,12 +176,10 @@ const DiseaseDetector = ({}) => {
               )}
             >
               <h3 className="text-[color:var(--tertiary-text-color)] text-lg font-semibold  text-center ">
-                Confidence - &nbsp;
+                Time - &nbsp;
               </h3>{" "}
               <h3 className="text-[color:var(--color-primary)] text-xl font-semibold  text-center ">
-                {Math.round((detectData?.confidence + Number.EPSILON) * 10000) /
-                  100}
-                %
+              {new Date(detectData?.time).toLocaleTimeString()}
               </h3>
             </div>
             <div className="flex gap-4">
